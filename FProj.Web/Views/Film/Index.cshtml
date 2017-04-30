@@ -49,9 +49,19 @@
                     <td></td>
                 </tr>
             </table>
-        </div>        
+            
+        </div>  
+         
     </div>
+   
 }
+<ul class="pagination">
+    <li><a class="mypage" href="#">1</a></li>
+    <li><a class="mypage" href="#">2</a></li>
+    <li><a class="mypage" href="#">3</a></li>
+    <li><a class="mypage" href="#">4</a></li>
+    <li><a class="mypage" href="#">5</a></li>
+</ul>
 
 <script>
 
@@ -60,5 +70,11 @@ $(function() {
         location.href = '@Url.Action("Details")/' + $(this).attr("data-id");
     });
 })
+
+    $(function () {
+        $(".mypage").click(function (event) {
+            //location.href = '@Url.Action("Details")/' + $(this).attr("data-id");
+        });
+    })
 
 </script>

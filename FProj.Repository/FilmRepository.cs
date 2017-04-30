@@ -74,5 +74,12 @@ namespace FProj.Repository
 
             return DataToApi.FilmToApi(newData);
         }
+
+        public List<FilmApi> GetbyPage(int PageNum=1, bool IsDeleted = false, int defaultSize=10)
+        {
+            var filmData = _dbContext.Film.Where(x => x.IsDeleted == IsDeleted).OrderByDescending(x => x.DateCreated).Skip(PageNum* defaultSize).Take(defaultSize).ToList();
+            var filmApi = filmData.Select(x => DataToApi.FilmToApi(x));
+            return filmApi.ToList();
+        }
     }
 }

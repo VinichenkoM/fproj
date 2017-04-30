@@ -13,7 +13,7 @@ namespace FProj.Web.Controllers
     public class FilmController : Controller
     {
         // GET: Film
-        public ActionResult Index() => View(UnitOfWork.Instance.FilmRepository.GetAll());
+       // public ActionResult Index() => View(UnitOfWork.Instance.FilmRepository.GetAll());
 
         public ActionResult Details(int Id) => View(UnitOfWork.Instance.FilmRepository.GetById(Id));
 
@@ -39,5 +39,7 @@ namespace FProj.Web.Controllers
 
             return RedirectToAction("Details", new { Id = film.Id });
         }
+
+        public ActionResult Index() => View(UnitOfWork.Instance.FilmRepository.GetbyPage());
     }
 }
